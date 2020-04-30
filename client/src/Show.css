@@ -1,0 +1,49 @@
+
+.wrapper{
+    width:700px;
+    height:400px;
+    background:#333;
+    color:#ddd;
+    position: absolute;
+    top:55%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+a{
+    margin-right: 10px;
+}
+
+thead{
+    font-size:22px;
+    background:pink;
+    color:#333;
+   
+
+}
+.head{
+    background: pink;
+}
+thead .head1{
+   background:pink;
+   text-align: center; 
+}
+thead .head2{
+   background:pink;
+   text-align: center; 
+}
+tbody{
+    font-size:18px;
+}
+h1{
+    font-family: cursive;
+}
+.btn-danger{
+    color:#fff;
+    background:rgb(241, 98, 98);
+
+
+}
+.btn-primary{
+    color:#fff;
+    background:rgb(60, 60, 165);
+}
