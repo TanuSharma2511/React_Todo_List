@@ -9,6 +9,7 @@ toast.configure();
 
 export default function AddTodo() {
     const [todo_item,setTodo]=useState("");
+    const [alert,setAlert]=useState("");
 
     const { addTodo , status} = useContext(GlobalContext);
     const onChange = e =>{
@@ -27,19 +28,24 @@ export default function AddTodo() {
      setTodo("");
       // alert("Item Added");
       // console.log(status);
-   
+      setAlert("Todo Item Added Successfully");
+        setTimeout(() =>{
+          setAlert("")
+        },7000);
       }
+    
     return (
         <React.Fragment>
             <div class="containers">
-          <p>To add a new Todo in your todo List , Cick the Add Todo Button</p>
+          <p>To add a new Todo in your todo List , Click the Add Todo Button</p>
         <button type="button" class="btn btn1 btn-default btn-lg text-center" data-toggle="modal" data-target="#myModal">Add Todo Item</button>
       </div>
 
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-          {status ? <div class="alert alert-success">Todo Item added successfully</div> : null}
+     {status ? <div class="alert alert-success">{alert}</div> : null} 
+
           <form action="/add_todo" class="form-horizontal" method="post" role="form">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>

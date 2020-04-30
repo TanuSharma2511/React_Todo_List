@@ -7,6 +7,7 @@ import { set } from 'mongoose';
 
 export default function EditTodo(props) {
   const [todo_item,setTodo] = useState("");
+  const [alert,setAlert] = useState("");
      console.log(props.location.state.todo_item.todo_item);
     var todo_id = props.match.params.id;
     const {editTodo,status} = useContext(GlobalContext);
@@ -26,7 +27,12 @@ useState(() =>{
        todo_item
       }
    await editTodo(newTodo,todo_id);
-  //  alert("Todo Updated");     
+  //  alert("Todo Updated");  
+     
+        setAlert("Todo Item Updated Successfully");
+        setTimeout(() =>{
+          setAlert("")
+        },7000);
     }
     return (
         <React.Fragment>
@@ -39,7 +45,7 @@ useState(() =>{
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-          {status ? <div class="alert alert-success">Todo Item updated successfully</div> : null}
+    {status ? <div class="alert alert-success">{alert}</div> : null}
           <form action="/add_todo" class="form-horizontal" method="post" role="form">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
